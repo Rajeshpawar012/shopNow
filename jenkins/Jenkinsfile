@@ -1,0 +1,51 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_USER = "rajeshpawar012"
+        BACKEND_IMAGE = "shopnow-backend"
+        FRONTEND_IMAGE = "shopnow-frontend"
+    }
+
+    stages {
+
+        stage('Checkout Code') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build Backend Image') {
+            steps {
+                sh '''
+                docker build -t $DOCKER_USER/$BACKEND_IMAGE:latest backend/
+                '''
+            }
+        }
+
+        stage('Build Frontend Image') {
+            steps {
+                sh '''
+                docker build -t $DOCKER_USER/$FRONTEND_IMAGE:latest frontend/
+                '''
+            }
+        }
+
+        stage('Push Images') {
+            steps {
+                sh '''
+                docker push $DOCKER_USER/$BACKEND_IMAGE:latest
+                docker push $DOCKER_USER/$FRONTEND_IMAGE:latest
+                '''
+            }
+        }
+
+        stage('Deploy using Helm') {
+            steps {
+                sh '''
+                helm upgrade --install shopnow kubernetes/helm/charts/shopnow
+                '''
+            }
+        }
+    }
+}
