@@ -159,3 +159,28 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+frontend:
+  image:
+    repository: rajeshpawar012/shopnow-frontend
+    tag: latest
+    pullPolicy: IfNotPresent
+
+  port: 80
+  serviceType: ClusterIP
+
+backend:
+  image:
+    repository: rajeshpawar012/shopnow-backend
+    tag: latest
+    pullPolicy: IfNotPresent
+
+  port: 5000
+
+backend:
+  replicas: 1
+  image:
+    repository: rajeshpawar012/shopnow-backend
+    tag: latest
+    pullPolicy: IfNotPresent
+  port: 5000
+  serviceType: ClusterIP
