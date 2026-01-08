@@ -127,9 +127,23 @@ The application is exposed externally using NGINX Ingress Controller.
 ## 11. Screenshots
 - Jenkins Pipeline
 
+<img width="950" height="455" alt="Screenshot 2026-01-07 181650" src="https://github.com/user-attachments/assets/9c7093d5-649a-4a12-b0d7-20849d3ed666" />
+
+
+<img width="955" height="465" alt="Screenshot 2026-01-07 181938" src="https://github.com/user-attachments/assets/167a6d54-ba33-469e-8bbf-860510806d76" />
+
+
 - ArgoCD Dashboard
+  
+<img width="956" height="518" alt="Screenshot 2026-01-08 174952" src="https://github.com/user-attachments/assets/78d55e58-abd7-4a49-b488-baf48ee660c6" />
+
+
+<img width="959" height="460" alt="Screenshot 2026-01-08 175328" src="https://github.com/user-attachments/assets/d58e882f-9d18-4720-9888-c4c6456d47a3" />
 
 - Application UI
+
+<img width="827" height="472" alt="Screenshot 2026-01-06 230536" src="https://github.com/user-attachments/assets/86ecd36b-241e-4d92-ba65-13c1224e61ad" />
+
 
 ---
 
@@ -145,5 +159,6 @@ It follows industry best practices for automation, scalability, and maintainabil
 Rajesh Pawar
 DevOps Engineer
 ```
+
 
 
