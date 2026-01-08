@@ -26,6 +26,7 @@ The application follows a microservice-based architecture:
 - Jenkins handles CI pipelines
 - ArgoCD manages continuous deployment using GitOps
 - NGINX Ingress exposes the application to users
+<img width="350" height="308" alt="image" src="https://github.com/user-attachments/assets/3ca50ad8-d1da-4141-a8ce-adc3fc7afd02" />
 
 ---
 
@@ -134,3 +135,4 @@ It follows industry best practices for automation, scalability, and maintainabil
 Rajesh Pawar
 DevOps Engineer
 ```
+
