@@ -55,3 +55,5 @@ echo "  ${REGISTRY}/frontend:${TAG} (for user: ${USER_NAME})"
 echo "  ${REGISTRY}/backend:${TAG}"
 echo "  ${REGISTRY}/admin:${TAG} (for user: ${USER_NAME}-admin)"
 
+
+
