@@ -21,7 +21,7 @@ This assignment focuses on containerization, Kubernetes deployment, CI/CD automa
 
 ## 3. Application Architecture
 The application follows a microservice-based architecture:
-- Frontend and backend are containerized using Docker
+- Frontend and backend are containerised using Docker
 - MongoDB runs inside the Kubernetes cluster
 - Jenkins handles CI pipelines
 - ArgoCD manages continuous deployment using GitOps
@@ -34,69 +34,103 @@ Both frontend and backend applications are packaged as Docker images.
 
 ### Backend
 ```bash
-docker build -t shopnow-backend backend/```
-
+docker build -t shopnow-backend backend/
+docker run -d -p 5000:5000 shopnow-backend
+```
 ### Frontend
 ```bash
-docker build -t shopnow-frontend frontend/```
+docker build -t shopnow-frontend frontend/
+docker run -d -p 80:80 shopnow-frontend
+```
+Docker images are pushed to Docker Hub and referenced in Kubernetes manifests.
 
-Docker images are pushed to Docker Hub and referenced in Kubernetes deployments.
 ---
-## 5. Kubernetes Deployment (Helm)
+## 6. Kubernetes Deployment (Helm)
 Helm charts are used to deploy all components into the Kubernetes cluster.
 
 ```bash
 kubectl create namespace shopnow
 helm install shopnow kubernetes/helm/charts/shopnow -n shopnow
+```
+### Deployed Components
 
-### Deployed resources:
+-Frontend Deployment & Service
 
-- Frontend Deployment and Service
+-Backend Deployment & Service
 
-- Backend Deployment and Service
+-MongoDB StatefulSet & Service
 
-- MongoDB Deployment and Service
+-NGINX Ingress Resource
 
-- Ingress Resource
 ---
-## 6. MongoDB in Kubernetes
-MongoDB is deployed as a Kubernetes Deployment with an internal ClusterIP Service.
-The backend connects to MongoDB using Kubernetes service discovery.
+## 7. MongoDB on Kubernetes
+
+MongoDB is deployed using Kubernetes StatefulSet to ensure data persistence and stable network identity.
+
+Key features:
+
+-Persistent Volume Claims (PVC)
+
+-Cluster-internal service
+
+-Secure communication with backend
 ---
-## 7. CI/CD using Jenkins
+
+## 8. CI/CD Pipeline – Jenkins
+
 ### Jenkins automates the CI process:
 
-- Source code checkout from GitHub
+- Pulls source code from GitHub
 
-- Docker image build
+- Builds Docker images
 
-- Docker image push to Docker Hub
+- Pushes images to Docker Hub
 
-- Deployment configuration update
+- Updates Kubernetes manifests / Helm values
+
+- Pipeline execution is triggered automatically on Git commits.
+
 ---
-## 8. GitOps Deployment using ArgoCD
-- ArgoCD continuously monitors the GitHub repository and synchronizes Kubernetes manifests automatically.
-- Any change pushed to GitHub is deployed to the cluster without manual intervention.
-- Manual deployment steps are eliminated
----
-## 9. Application Access using Ingress
-The application is exposed to users using the NGINX Ingress Controller.
 
+## 9. GitOps Deployment – ArgoCD
 
-http://shopnow.local
+ArgoCD continuously monitors the Git repository and ensures the Kubernetes cluster state matches the Git configuration.
+
+### Features used:
+
+- Automatic sync
+
+- Declarative deployments
+
+- Rollback via Git history
 ---
-## 10. Screenshots
-- Architecture Diagram
+## 10. Application Exposure – NGINX Ingress
+
+The application is exposed externally using NGINX Ingress Controller.
+
+### Benefits:
+
+- Centralised traffic management
+
+- Clean URL routing
+
+- Scalable ingress configuration
+---
+
+## 11. Screenshots
 - Jenkins Pipeline
-- Screenshot showing Jenkins CI/CD stages.
----
-### ArgoCD Application
-Screenshot showing application synced and healthy.
----
-### Application UI
-Screenshot of ShopNow application accessed via browser.
----
-## 11. Conclusion
-This assignment demonstrates a real-world DevOps implementation using Docker, Kubernetes, Jenkins, Helm, and ArgoCD following GitOps principles.
 
-### Author: Rajesh Pawar
+- ArgoCD Dashboard
+
+- Application UI
+---
+## 12. Conclusion
+
+- This project demonstrates a complete production-grade DevOps workflow using Docker, Kubernetes, Helm, Jenkins, ArgoCD, and NGINX Ingress.
+It follows industry best practices for automation, scalability, and maintainability.
+---
+### Author
+```
+Rajesh Pawar
+DevOps Engineer
+```
