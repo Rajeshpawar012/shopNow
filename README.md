@@ -34,11 +34,11 @@ Both frontend and backend applications are packaged as Docker images.
 
 ### Backend
 ```bash
-docker build -t shopnow-backend backend/
+docker build -t shopnow-backend backend/```
 
 ### Frontend
 ```bash
-docker build -t shopnow-frontend frontend/
+docker build -t shopnow-frontend frontend/```
 
 Docker images are pushed to Docker Hub and referenced in Kubernetes deployments.
 ---
