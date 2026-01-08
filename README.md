@@ -46,6 +46,7 @@ docker run -d -p 80:80 shopnow-frontend
 Docker images are pushed to Docker Hub and referenced in Kubernetes manifests.
 
 ---
+
 ## 6. Kubernetes Deployment (Helm)
 Helm charts are used to deploy all components into the Kubernetes cluster.
 
@@ -64,6 +65,7 @@ helm install shopnow kubernetes/helm/charts/shopnow -n shopnow
 -NGINX Ingress Resource
 
 ---
+
 ## 7. MongoDB on Kubernetes
 
 MongoDB is deployed using Kubernetes StatefulSet to ensure data persistence and stable network identity.
@@ -75,6 +77,7 @@ Key features:
 -Cluster-internal service
 
 -Secure communication with backend
+
 ---
 
 ## 8. CI/CD Pipeline – Jenkins
@@ -104,7 +107,9 @@ ArgoCD continuously monitors the Git repository and ensures the Kubernetes clust
 - Declarative deployments
 
 - Rollback via Git history
+  
 ---
+
 ## 10. Application Exposure – NGINX Ingress
 
 The application is exposed externally using NGINX Ingress Controller.
@@ -116,6 +121,7 @@ The application is exposed externally using NGINX Ingress Controller.
 - Clean URL routing
 
 - Scalable ingress configuration
+  
 ---
 
 ## 11. Screenshots
@@ -124,15 +130,20 @@ The application is exposed externally using NGINX Ingress Controller.
 - ArgoCD Dashboard
 
 - Application UI
+
 ---
+
 ## 12. Conclusion
 
 - This project demonstrates a complete production-grade DevOps workflow using Docker, Kubernetes, Helm, Jenkins, ArgoCD, and NGINX Ingress.
 It follows industry best practices for automation, scalability, and maintainability.
+
 ---
+
 ### Author
 ```
 Rajesh Pawar
 DevOps Engineer
 ```
+
 
